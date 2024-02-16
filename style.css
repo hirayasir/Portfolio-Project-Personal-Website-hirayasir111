@@ -1,0 +1,455 @@
+/* You can add custom CSS and override boostrap styles in this file.  Remember, bootstrap is just CSS at the end of the day! */
+
+/* For that annoying white bar on the right mobile view */
+* {
+  max-width: 100vw;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+  letter-spacing: 3px;
+}
+/* Colors: https://www.canva.com/colors/color-palettes/window-tide/
+#C3E0E5 Baby Blue
+#274472 Dark Blue
+#5885AF Blue Gray
+#41729F Midnight Blue
+ */
+
+/* SIZZLE Flipper home icon */
+
+.flip-container {
+  margin: 0 auto;
+
+  perspective: 1000;
+}
+
+.flip-container:hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.flipper {
+  transition:0.8s;
+  transform-style: preserve-3d;
+}
+
+.front, .back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+}
+
+.flip-container, .front, .back {
+  width: 30px;
+  height: 30px;
+}
+
+.front {
+  z-index: 1;
+  border-radius: 50%;
+  top: -1px;
+}
+
+.front i {
+  vertical-align: middle !important;
+  color: #a2babe;
+}
+
+.back {
+  border-radius: 50%;
+  transform: rotateY(180deg);
+}
+
+.back img {
+  width: 30px;
+  height: auto;
+  border-radius: 50%;
+  position: relative;
+  border: 2px solid #274472;
+}
+
+/* -----Navbar----- */
+
+.navbarBox {
+  min-height: 50px;
+}
+
+.navbar-custom {
+  background: #464646;
+  box-shadow: 0 8px 6px -6px black;
+  /* font-family: cursive; */
+}
+
+
+.navbar-brand {
+  color: #a2babe;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+  color:#a2babe;
+  /* font-weight: bold; */
+}
+
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:focus .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color:#5885AF;
+}
+
+
+/* -----Hero----- */
+
+/* Sizzle parallax? */
+#hero-section {
+  /* This should be an image. */
+  text-align: center;
+  background-image: url(img/hero.jpg);
+  /* height: 85vh; */
+  position: relative;
+  background-position: 75% 75%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* Change this values to work for you. */
+  padding: clamp(5px, 45vh, 500px) 0;
+}
+
+@media (max-width: 768px) {
+  #hero-section {
+    background-attachment: scroll;
+  }
+}
+
+#profile-img {
+  /* Change this values to work for you. */
+  /* margin: clamp(10px, 20vh, 100px) auto; */
+
+  /* This should be an image */
+  content: url(img/me.jpg);
+
+  /* Change this values to work for you. */
+  height: clamp(100px, 20vh, 200px);
+
+  /* Change this values to work for you. */
+  width: clamp(100px, 20vh, 200px);
+
+  display: inline-block;
+  position: relative;
+  /* width: auto;
+  height: 20vh; */
+  min-width: 100px;
+  min-height: 100px;
+  border-radius: 50%;
+  border: 10px solid #274472;
+  z-index: 100;
+  transition-duration: 1s;
+} 
+
+/* Sizzle? Hover effects(first of a many)*/
+#profile-img:hover {
+  transform: scale(1.2);
+}
+
+/* Sizzle overlay? */
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  transition-duration: 1s;
+  top: 0;
+  left: 0;
+}
+
+.overlay:hover {
+  background-color: rgba(0,0,0,0.3);
+}
+
+.centerBio {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#hero-section h2 {
+  /* How to center text? */
+  color: #C3E0E5;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2vh;
+  font-size: calc(16px + 3vw);
+  z-index: 100;
+  position: relative;
+  text-shadow: -1.5px -1.5px 0 #274472, 1.5px -1.5px 0 #274472, -1.5px 1.5px 0 #274472, 1.5px 1.5px 0 #274472;
+  /* Add responsive vertical margins via clamp? */
+  
+}
+
+#hero-section h4 {
+  color: #C3E0E5;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: calc(16px + 1vw);
+  z-index: 100;
+  position: relative;
+  padding-top: 2vh;
+  font-style: italic;
+  text-shadow: -1.5px -1.5px 0 #274472, 1.5px -1.5px 0 #274472, -1.5px 1.5px 0 #274472, 1.5px 1.5px 0 #274472;
+}
+
+/* -----Mission/Meet Me----- */
+
+#mission-section {
+  background-color: #41729F;
+  color: #C3E0E5;
+  padding: 50px 0; /* Increased padding for better spacing */
+}
+
+#mission-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#mission-section img {
+  max-width: 100%; /* Ensure image does not exceed container width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 15px; /* Slightly reduced border radius */
+  margin-bottom: 20px; /* Added margin to separate image from text */
+}
+
+#mission-section p {
+  font-size: 16px; /* Adjusted font size for better readability */
+  line-height: 1.6; /* Increased line height for better spacing */
+  margin: 0 auto 20px; /* Center text and add bottom margin */
+  max-width: 600px; /* Limit width of text for better readability */
+}
+
+
+/* Sizzle another hover */
+#mission-section img:hover {
+  filter: drop-shadow(14px 14px 15px #274472);
+}
+
+#mission-section p {
+  padding: 15px 15px 15px 15px;
+  font-size: calc(12px + 1vw);
+}
+
+/* -----Skills----- */
+
+#skills-section {
+  background-color: #274472;
+  color: #C3E0E5;
+  padding: 15px 0 15px 0;
+}
+
+#skills-section img {
+  /* width: clamp(100px, 20vw, 150px); */
+  height: clamp(100px, 15vh, 150px);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  filter: grayscale(90%);
+  transition-duration: 1.75s;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* SIZZLE skill image flipper on hover */
+.flip-container-skills {
+  margin: auto 0;
+  perspective: 1000;
+}
+
+.flip-container-skills:hover .flipper-skills {
+  transform: rotateY(180deg);
+}
+
+.flipper-skills {
+  transition:0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+  margin: auto;
+}
+
+.front-skills, .back-skills {
+  position: absolute;
+  /* top: 0;
+  left: 0; */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  margin: auto auto;
+}
+
+.flip-container-skills, .front-skills, .back-skills {
+  width: 10em;
+  height: clamp(100px, 15vh, 150px);
+  margin: auto;
+}
+
+.front-skills {
+  z-index: 1;
+}
+
+.back-skills {
+  transform: rotateY(180deg);
+}
+
+.back-skills img {
+  filter: grayscale(0%) !important;
+  margin: auto;
+}
+
+#skills-section h3 {
+  font-size: clamp(18px, 1.75vw, 48px);
+}
+
+#skills-section p {
+  text-align: center;
+  font-size: clamp(16px, 1.5vw, 32px);
+  max-width: 50vw;
+  margin: auto;
+}
+
+/* -----Projects----- */
+
+#project-section {
+  background-color: #41729F; /* Sets the background color of the project section */
+  color: #C3E0E5; /* Sets the text color of the project section */
+  padding: 15px 10px; /* Adds padding to the project section */
+}
+
+.carousel-item {
+  max-height: 65vh; /* Sets the maximum height of each carousel item */
+}
+
+.carousel-item img {
+  max-height: 65vh; /* Set a maximum height for the images */
+  width: auto; /* Let the width adjust automatically to maintain aspect ratio */
+  object-fit: cover; /* Ensure the entire image fits within the container */
+  border-radius: 5px; /* Adjust border-radius if needed */
+}
+
+.carousel-caption {
+  background-color: rgba(60, 60, 60, 0.4); /* Sets the background color of the carousel caption */
+  border-radius: 5px; /* Adds rounded corners to the carousel caption */
+  height: 28vh !important; /* Sets the height of the carousel caption */
+}
+
+.carousel-caption h4 {
+  padding: 0 8vw; /* Adds horizontal padding to the heading inside the carousel caption */
+  font-size: clamp(0.75rem, 3vw, 1.75rem); /* Sets the font size of the heading */
+  text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000; /* Adds a text shadow effect */
+  color: #C3E0E5; /* Sets the text color of the heading */
+}
+
+.carousel-caption p {
+  padding: 0 8vw; /* Adds horizontal padding to the paragraph inside the carousel caption */
+  font-size: clamp(0.6rem, 1.5vw, 1.75rem); /* Sets the font size of the paragraph */
+  text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000; /* Adds a text shadow effect */
+  color: #C3E0E5; /* Sets the text color of the paragraph */
+}
+
+
+
+/* -----Contact----- */
+/* SIZZLE email modal */
+#contact-section {
+  background-color: #274472;
+  color: #C3E0E5;
+  padding: 15px 0 15px 0;
+}
+
+#contact-section i {
+  font-size: clamp(12px, 10vw, 60px);
+  color: #C3E0E5;
+  transition-duration: .75s;
+  padding: 15px 0 15px;
+}
+
+#contact-section i:hover {
+  color: rgb(150, 173, 177);
+}
+
+.btn-light {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  padding: 0 0;
+}
+
+.modal-content {
+  background-color: #485b79;
+  color: #C3E0E5;
+}
+
+
+
+h5.modal-title {
+  text-transform: uppercase;
+}
+
+/* button .btn-close {
+  background-color: #C3E0E5 !important;
+} */
+
+.carousel .slide {
+  margin: 0 200px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #417294;
+  border-color: #417294;
+}
+
+.modal-body {
+  font-size: 20px;
+}
+
+.modal-footer {
+  justify-content: center;
+}
+
+.modal-footer button a {
+  text-decoration: none !important;
+  color: white;
+}
+
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
+/* -----Footer----- */
+
+#footer-section {
+  background-color: #464646;
+  color: #C3E0E5;
+  padding: 15px 0 15px 0;
+  height: 55px;
+}
+
+::selection {
+  background-color: #606060;
+}
+
+/* Debugging */
+/* *{
+background: #000 !important;
+color: #0f0 !important;
+outline: solid #f00 1px !important;
+} */
+
